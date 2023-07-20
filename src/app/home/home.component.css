@@ -238,7 +238,7 @@
   box-sizing: border-box
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1000px) {
   .d-flex {
     flex-direction: column; /* Stack elements vertically */
     align-items: center!important;
