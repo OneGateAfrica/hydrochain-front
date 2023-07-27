@@ -6,6 +6,10 @@ import {AppModule} from "../app.module";
 import {HeaderComponent} from "../components/header/header.component";
 import {TopBodyComponent} from "../components/body/top-body.component";
 import {CardsComponent} from "../components/cards/cards.component";
+import {StatsComponent} from "../components/stats/stats.component";
+import {GetInTouchComponent} from "../components/get-in-touch/get-in-touch.component";
+import {HebergementComponent} from "../components/hebergement/hebergement.component";
+import {FooterComponent} from "../components/footer/footer.component";
 
 const homeRoutes: Route[] = [
   {path: '**', component: HomeComponent },
@@ -17,7 +21,11 @@ const homeRoutes: Route[] = [
     HomeComponent,
     HeaderComponent,
     TopBodyComponent,
-    CardsComponent
+    CardsComponent,
+    StatsComponent,
+    GetInTouchComponent,
+    HebergementComponent,
+    FooterComponent
   ],
   imports: [
     RouterModule.forChild(homeRoutes),
