@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
@@ -8,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  route: string;
+
+  constructor(private router: Router) {
+    this.route = this.router.url;
+  }
 }

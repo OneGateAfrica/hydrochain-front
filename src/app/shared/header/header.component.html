@@ -7,25 +7,14 @@
     <div class="container"> <!-- Add a container for responsive layout -->
       <ul class="navbar-nav mr-auto gap-3">
         <li class="nav-item">
-          <a class="nav-link active" href="#hero-area">Home</a>
+          <a class="nav-link" [ngClass]="{'active': route === '/home'}" href="/home">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#feature-area">About</a>
+          <a class="nav-link" [ngClass]="{'active': route === '/activity'}" href="/activity">Nos Activités</a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" href="#service-area">Service</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#case-study-area">Case Study</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#pricing-area">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#blog-area">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact-area">Contact</a>
+          <a class="nav-link" [ngClass]="{'active': route === '/jobs'}" href="/jobs">Carrière</a>
         </li>
       </ul>
     </div>
