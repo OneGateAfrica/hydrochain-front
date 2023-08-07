@@ -60,6 +60,7 @@ a.text-thm:hover{
 }
 
 .fj_post{
+  cursor: pointer;
   background-color:#fff;
   border:1px solid #f6f6f6;
   border-left:4px solid transparent;
@@ -186,6 +187,16 @@ body {
   font-weight: 600;
   font-family: Source Sans Pro,Helvetica,sans-serif;
   margin-bottom: 0px!important;
+}
+
+.anim3{
+  transition-property: transform;
+  transition-duration: 1000ms;
+  transform-origin: center center;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  opacity: .6;
+  -webkit-animation: dance 4s alternate infinite;
+  animation: dance 4s alternate infinite;
 }
 
 .hero-animation .anim-hero-01,

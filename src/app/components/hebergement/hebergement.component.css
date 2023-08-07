@@ -1,7 +1,7 @@
 .h-container {
   background: #ECF0F2;
   height: 300px;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -7,14 +7,14 @@
     <div class="container"> <!-- Add a container for responsive layout -->
       <ul class="navbar-nav mr-auto gap-3">
         <li class="nav-item">
-          <a class="nav-link" [ngClass]="{'active': route === '/home'}" href="/home">Accueil</a>
+          <a class="nav-link" [ngClass]="{'active': route === '/home'}" routerLink="/home">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [ngClass]="{'active': route === '/activity'}" href="/activity">Nos Activités</a>
+          <a class="nav-link" [ngClass]="{'active': route === '/activity'}" routerLink="/activity">Nos Activités</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" [ngClass]="{'active': route === '/jobs'}" href="/jobs">Carrière</a>
+          <a class="nav-link" [ngClass]="{'active': route === '/jobs'}" routerLink="/jobs">Carrière</a>
         </li>
       </ul>
     </div>

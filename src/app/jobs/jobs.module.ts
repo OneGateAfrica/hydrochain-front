@@ -9,27 +9,34 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
+import { JobDetailComponent } from './job-detail/job-detail.component';
+import {NgbInputDatepicker} from "@ng-bootstrap/ng-bootstrap";
+import {MatButtonModule} from "@angular/material/button";
 
 
 const jobsRoutes: Route[] = [
-  {path: '**', component: JobsComponent },
+  {path: '', component: JobsComponent },
+  {path: 'detail/:id', component: JobDetailComponent },
 
 ];
 
 @NgModule({
   declarations: [
-    JobsComponent
+    JobsComponent,
+    JobDetailComponent
   ],
-  imports: [
-    RouterModule.forChild(jobsRoutes),
-    CommonModule,
-    SharedModule,
-    MatSlideToggleModule,
-    MatCardModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatSelectModule,
-    MatIconModule
-  ]
+    imports: [
+        RouterModule.forChild(jobsRoutes),
+        CommonModule,
+        SharedModule,
+        MatSlideToggleModule,
+        MatCardModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatSelectModule,
+        MatIconModule,
+        NgbInputDatepicker,
+        MatButtonModule
+    ]
 })
 export class JobsModule { }

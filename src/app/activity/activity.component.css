@@ -1,5 +1,5 @@
 .act_container{
-  width: 100vw;
+  width: 100%;
   position: relative;
   display: flex;
   align-items: center;
@@ -36,6 +36,8 @@
   -webkit-animation: dance 4s alternate infinite;
   animation: dance 4s alternate infinite;
 }
+
+
 
 @keyframes dance {
   0% {
@@ -122,7 +124,7 @@ span {
 }
 .banner2{
   position: absolute;
-  height: 250px;
+  height: 230px;
   width: 100%;
   background: #FEF5E4;
   z-index: -999;
