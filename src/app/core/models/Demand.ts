@@ -1,4 +1,6 @@
-export class Demand{
+import {BaseEntity} from "./abstracts/BaseEntity";
+
+export class Demand extends BaseEntity{
   fname: string;
   lname:string;
   mobile:string;
