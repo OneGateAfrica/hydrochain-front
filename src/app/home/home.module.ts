@@ -9,6 +9,8 @@ import {GetInTouchComponent} from "../components/get-in-touch/get-in-touch.compo
 import {HebergementComponent} from "../components/hebergement/hebergement.component";
 import {FooterComponent} from "../shared/footer/footer.component";
 import {SharedModule} from "../shared/shared.module";
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 const homeRoutes: Route[] = [
   {path: '**', component: HomeComponent },
@@ -24,10 +26,12 @@ const homeRoutes: Route[] = [
     GetInTouchComponent,
     HebergementComponent,
   ],
-  imports: [
-    RouterModule.forChild(homeRoutes),
-    CommonModule,
-    SharedModule
-  ]
+    imports: [
+        RouterModule.forChild(homeRoutes),
+        CommonModule,
+        SharedModule,
+        FormsModule,
+        HttpClientModule
+    ]
 })
 export class HomeModule { }

@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export abstract class AbstractServiceService<T> {
-  url = "http://localhost:1137/";
+  url = "http://localhost:1337/api/";
   protected constructor(endPoint : string, public http :HttpClient) {
     this.url += endPoint;
   }
@@ -20,12 +20,12 @@ export abstract class AbstractServiceService<T> {
     return this.http.get<T[]>(this.url);
   }
 
-  delete(operationId: any){
-    return this.http.delete<T[]>(this.url+`/${operationId}`);
+  delete(id: any){
+    return this.http.delete<T[]>(this.url+`/${id}`);
   }
 
-  update(operation: any){
-    return this.http.put<T[]>(this.url, operation);
+  update(entity: any){
+    return this.http.put<T[]>(this.url, entity);
   }
 
 

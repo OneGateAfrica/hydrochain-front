@@ -7,16 +7,16 @@
             <div class="row">
               <div class="col-lg-6 order-md-0 order-1">
                 <div class="get-contact-left">
-                  <form method="post" action="#">
-                    <input type="text" name="fName" id="fName" placeholder="Nom" required="">
-                    <input type="text" name="lName" id="lName" placeholder="Prénom" required="">
-                    <input type="email" placeholder="Adresse email" required="">
-                    <textarea placeholder="Message"></textarea>
+                  <form #ngForm="ngForm">
+                    <input type="text" ngModel name="lastName" id="lastName" placeholder="Nom">
+                    <input type="text" ngModel name="firstName" id="firstName" placeholder="Prénom" >
+                    <input type="email" ngModel name="email" id="email" placeholder="Adresse email">
+                    <textarea ngModel name="message" placeholder="Message" ></textarea>
                     <label for="check">
-                      <input type="checkbox" name="check" id="check">
+                      <input ngModel type="checkbox" name="check" id="check">
                       En cliquant ici, vous acceptez nos  <a href="#">termes et politique.</a>
                     </label>
-                    <button type="submit" class="btns btn-get-touch">Envoyer le message</button>
+                    <button type="submit" (click)="submit(ngForm.value)" class="btns btn-get-touch">Envoyer le message</button>
                   </form>
                 </div>
               </div>

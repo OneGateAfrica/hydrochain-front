@@ -1,8 +1,8 @@
 import {BaseEntity} from "./abstracts/BaseEntity";
 
 export class Contact extends BaseEntity{
-  fname:string;
-  lname:string;
+  firstname:string;
+  lastname:string;
   email:string;
   message:string;
 }
