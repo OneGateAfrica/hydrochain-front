@@ -7,7 +7,7 @@ import {StrapiModel} from "../../models/StrapiModel";
 @Injectable({
   providedIn: 'root'
 })
-export class DemandService extends AbstractServiceService<StrapiModel<Demand>>{
+export class DemandService extends AbstractServiceService<Demand>{
 
   constructor(http:HttpClient) {
     super("demand" , http);

@@ -16,8 +16,7 @@ export class GetInTouchComponent {
   }
 
   submit(value: Contact) {
-    let strapi = new StrapiModel<Contact> ;
-    strapi.data = value;
-    this.contactService.save(strapi).subscribe(e => this.messagesModalService.toastSuccess("Votre message a été envoyé avec succés!"));
+
+    this.contactService.save(value).subscribe(e => this.messagesModalService.toastSuccess("Votre message a été envoyé avec succés!"));
     }
 }

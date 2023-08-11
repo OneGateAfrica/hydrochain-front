@@ -58,59 +58,8 @@
       </div>
     </div>
     <div class="row mt-0">
-
-      <div class="col-sm-12 col-lg-12">
-        <div class="fj_post" routerLink="detail/1">
-          <div class="details">
-            <h5 class="job_chedule text-thm mt0">Full Time</h5>
-            <div class="thumb fn-smd">
-              <img class="img-fluid" src="https://creativelayers.net/themes/careerup-html/images/partners/1.jpg" alt="1.jpg">
-            </div>
-            <h4>JEB Product Sales Specialist, Russia &amp; CIS</h4>
-            <p>Posted 23 August by <a class="text-thm" href="#">Wiggle CRC</a></p>
-            <ul class="featurej_post">
-              <li class="list-inline-item"><span class="flaticon-location-pin"></span> <a href="#">Bothell, WA, USA</a></li>
-              <li class="list-inline-item"><span class="flaticon-price pl20"></span> <a href="#">$13.00 - $18.00 per hour</a></li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="col-sm-12 col-lg-12">
-        <div class="fj_post">
-          <div class="details">
-            <h5 class="job_chedule text-thm mt0">Full Time</h5>
-            <div class="thumb fn-smd">
-              <img class="img-fluid" src="https://creativelayers.net/themes/careerup-html/images/partners/1.jpg" alt="1.jpg">
-            </div>
-            <h4>JEB Product Sales Specialist, Russia &amp; CIS</h4>
-            <p>Posted 23 August by <a class="text-thm" href="#">Wiggle CRC</a></p>
-            <ul class="featurej_post">
-              <li class="list-inline-item"><span class="flaticon-location-pin"></span> <a href="#">Bothell, WA, USA</a></li>
-              <li class="list-inline-item"><span class="flaticon-price pl20"></span> <a href="#">$13.00 - $18.00 per hour</a></li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="col-sm-12 col-lg-12">
-        <div class="fj_post">
-          <div class="details">
-            <h5 class="job_chedule text-thm mt0">Full Time</h5>
-            <div class="thumb fn-smd">
-              <img class="img-fluid" src="https://creativelayers.net/themes/careerup-html/images/partners/1.jpg" alt="1.jpg">
-            </div>
-            <h4>JEB Product Sales Specialist, Russia &amp; CIS</h4>
-            <p>Posted 23 August by <a class="text-thm" href="#">Wiggle CRC</a></p>
-            <ul class="featurej_post">
-              <li class="list-inline-item"><span class="flaticon-location-pin"></span> <a href="#">Bothell, WA, USA</a></li>
-              <li class="list-inline-item"><span class="flaticon-price pl20"></span> <a href="#">$13.00 - $18.00 per hour</a></li>
-            </ul>
-          </div>
-
-        </div>
+      <div *ngFor="let job of jobs">
+        <app-job-card [job]="job.attributes"></app-job-card>
       </div>
 
     </div>

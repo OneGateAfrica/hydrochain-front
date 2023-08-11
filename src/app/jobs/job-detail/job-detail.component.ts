@@ -1,16 +1,28 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {JobService} from "../../core/services/job/job.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-job-detail',
   templateUrl: './job-detail.component.html',
   styleUrls: ['./job-detail.component.css']
 })
-export class JobDetailComponent {
+export class JobDetailComponent implements OnInit{
   closeResult = '';
+  public id: string;
 
-  constructor(private modalService: NgbModal) {}
+  public job : any;
+
+  constructor(private modalService: NgbModal,
+              private jobService:JobService,
+              private route:ActivatedRoute) {
+
+    this.id = this.route.snapshot.paramMap.get('id');
+
+
+  }
   form = new FormGroup( {
     email : new FormControl ( '', [Validators.required, Validators.email] ) ,
     nom: new FormControl ( '', [Validators.required] ),
@@ -67,5 +79,9 @@ export class JobDetailComponent {
     } else {
       return `with: ${reason}`;
     }
+  }
+
+  ngOnInit(): void {
+    this.jobService.getById(this.id).subscribe((e :any) => this.job = e.data.attributes);
   }
 }

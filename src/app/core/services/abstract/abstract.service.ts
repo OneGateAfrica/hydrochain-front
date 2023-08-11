@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {StrapiModel} from "../../models/StrapiModel";
+import {Contact} from "../../models/Contact";
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +15,18 @@ export abstract class AbstractServiceService<T> {
 
 
   save(entity :T): Observable<T>{
+    let strapi = new StrapiModel<T> ;
+    strapi.data = entity;
     return this.http.post<T>(this.url, entity);
   }
 
   getAll(): Observable<T[]>{
-    return this.http.get<T[]>(this.url);
+    return this.http.get<T[]>(this.url+'s?populate=*');
+  }
+
+
+  getById(id: any): Observable<T>{
+    return this.http.get<T>(this.url+`s/${id}?populate=*`);
   }
 
   delete(id: any){

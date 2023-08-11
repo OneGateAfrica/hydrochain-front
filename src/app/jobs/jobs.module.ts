@@ -12,6 +12,7 @@ import {MatIconModule} from "@angular/material/icon";
 import { JobDetailComponent } from './job-detail/job-detail.component';
 import {NgbInputDatepicker} from "@ng-bootstrap/ng-bootstrap";
 import {MatButtonModule} from "@angular/material/button";
+import { JobCardComponent } from './job-card/job-card.component';
 
 
 const jobsRoutes: Route[] = [
@@ -23,7 +24,8 @@ const jobsRoutes: Route[] = [
 @NgModule({
   declarations: [
     JobsComponent,
-    JobDetailComponent
+    JobDetailComponent,
+    JobCardComponent,
   ],
     imports: [
         RouterModule.forChild(jobsRoutes),
