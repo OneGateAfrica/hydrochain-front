@@ -91,7 +91,6 @@ export class JobDetailComponent implements OnInit{
     this.jobService.getById(this.id).subscribe((e :any) =>  {this.job = e.data.attributes ; console.log(this.job)});
   }
 
-  abcde
 
   applyAndClose() {
     this.modalService.dismissAll();
