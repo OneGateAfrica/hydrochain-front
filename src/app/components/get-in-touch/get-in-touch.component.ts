@@ -17,6 +17,6 @@ export class GetInTouchComponent {
 
   submit(value: Contact) {
 
-    this.contactService.save(value).subscribe(e => this.messagesModalService.toastSuccess("Votre message a été envoyé avec succés!"));
+    this.contactService.save(value).subscribe(e => this.messagesModalService.toastSuccess("Votre message a été envoyé avec succés!") , error => this.messagesModalService.toastError(error.error.error.message));
     }
 }

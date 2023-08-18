@@ -6,7 +6,7 @@ import {SharedModule} from "../shared/shared.module";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
 import { JobDetailComponent } from './job-detail/job-detail.component';
@@ -27,18 +27,19 @@ const jobsRoutes: Route[] = [
     JobDetailComponent,
     JobCardComponent,
   ],
-    imports: [
-        RouterModule.forChild(jobsRoutes),
-        CommonModule,
-        SharedModule,
-        MatSlideToggleModule,
-        MatCardModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatSelectModule,
-        MatIconModule,
-        NgbInputDatepicker,
-        MatButtonModule
-    ]
+  imports: [
+    RouterModule.forChild(jobsRoutes),
+    CommonModule,
+    SharedModule,
+    MatSlideToggleModule,
+    MatCardModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatIconModule,
+    NgbInputDatepicker,
+    MatButtonModule,
+    FormsModule
+  ]
 })
 export class JobsModule { }

@@ -17,7 +17,7 @@ export abstract class AbstractServiceService<T> {
   save(entity :T): Observable<T>{
     let strapi = new StrapiModel<T> ;
     strapi.data = entity;
-    return this.http.post<T>(this.url, entity);
+    return this.http.post<T>(this.url, strapi);
   }
 
   getAll(): Observable<T[]>{

@@ -8,7 +8,7 @@
     </div>
       <div class="row mt-5">
         <div class="col">
-          <h2>Senior Full Stack Engineer, Creator Success Full Time</h2>
+          <h2>{{job?.name}}</h2>
           <p>Fulltime</p>
         </div>
         <div class="col-auto">
@@ -26,40 +26,52 @@
             <form class="d-flex flex-column p-2 overflow-auto">
                 <mat-form-field appearance="outline">
                   <mat-label>Nom :</mat-label>
-                  <input matInput placeholder="pat@example.com" [formControl]="form.controls?.email" required>
-                  <mat-error *ngIf="form.controls['email'].invalid">{{getErrorMessage()}}</mat-error>
+                  <input matInput placeholder="alex, ..." [formControl]="form.controls?.nom" required>
+                  <mat-error *ngIf="form.controls['nom'].invalid">
+                    Nom est obligatoire!
+                  </mat-error>
                 </mat-form-field>
 
               <mat-form-field appearance="outline">
                 <mat-label>Prenom :</mat-label>
-                <input matInput placeholder="pat@example.com" [formControl]="form.controls?.email" required>
-                <mat-error *ngIf="form.controls['email'].invalid">{{getErrorMessage()}}</mat-error>
+                <input matInput placeholder="mario, ..." [formControl]="form.controls?.prenom" required>
+                <mat-error *ngIf="form.controls['prenom'].invalid">
+                  Prenom est obligatoire!
+                </mat-error>
               </mat-form-field>
 
 
               <mat-form-field appearance="outline">
                 <mat-label>Mobile :</mat-label>
-                <input matInput placeholder="pat@example.com" [formControl]="form.controls?.email" required>
-                <mat-error *ngIf="form.controls['email'].invalid">{{getErrorMessage()}}</mat-error>
+                <input matInput placeholder="+216 27 258 258" [formControl]="form.controls?.mobile" required>
+                <mat-error *ngIf="form.controls['mobile'].invalid">
+                  Mobile est obligatoire!
+                </mat-error>
               </mat-form-field>
 
 
               <mat-form-field appearance="outline">
                 <mat-label>Phone :</mat-label>
-                <input matInput placeholder="pat@example.com" [formControl]="form.controls?.email" required>
-                <mat-error *ngIf="form.controls['email'].invalid">{{getErrorMessage()}}</mat-error>
+                <input matInput placeholder="+216 70 258 258" [formControl]="form.controls?.phone" required>
+                <mat-error *ngIf="form.controls['phone'].invalid">
+                  Numéro de telephone est obligatoire!
+                </mat-error>
               </mat-form-field>
 
               <mat-form-field appearance="outline">
                 <mat-label>Email :</mat-label>
                 <input matInput placeholder="pat@example.com" [formControl]="form.controls?.email" required>
-                <mat-error *ngIf="form.controls['email'].invalid">{{getErrorMessage()}}</mat-error>
+                <mat-error *ngIf="form.controls['email'].invalid">
+                  Email est invalide
+                </mat-error>
               </mat-form-field>
 
               <mat-form-field appearance="outline">
                 <mat-label>Social Network and Web Links :</mat-label>
-                <input matInput placeholder="pat@example.com" [formControl]="form.controls?.email" required>
-                <mat-error *ngIf="form.controls['email'].invalid">{{getErrorMessage()}}</mat-error>
+                <input matInput placeholder="pat@example.com" [formControl]="form.controls?.links" required>
+                <mat-error *ngIf="form.controls['links'].invalid">
+                  Les liens sont invalide
+                </mat-error>
               </mat-form-field>
 
 
@@ -67,15 +79,12 @@
                 <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
                 <input hidden (change)="onFileSelected($event)" #fileInput [formControl]="form.controls?.file" type="file">
                 <span class="file-name">{{selectedFile?.name}}</span>
-                <mat-error *ngIf="form.controls['file'].invalid">{{getErrorMessage()}}</mat-error>
-
-
-
+                <mat-error *ngIf="form.controls['file'].invalid">il faut selectionner un cv</mat-error>
 
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+            <button type="button" class="btn btn-outline-dark" (click)="applyAndClose()">Postuler maintenant</button>
           </div>
         </ng-template>
 
@@ -90,33 +99,35 @@
         <div class="col-md-6 d-flex">
           <div class="sidebar-icon-item"><img src="https://jobbox-nextjs-v3.vercel.app/assets/imgs/page/job-single/industry.svg" alt="jobBox"></div>
           <div class="sidebar-text-info ml-10"><span class="text-description industry-icon mb-10">Industry</span><strong
-            class="small-heading"> Mechanical / Auto / Automotive, Civil / Construction</strong></div>
+            class="small-heading">{{job?.industry}}</strong></div>
         </div>
         <div class="col-md-6 d-flex mt-sm-15">
           <div class="sidebar-icon-item"><img src="https://jobbox-nextjs-v3.vercel.app/assets/imgs/page/job-single/job-level.svg" alt="jobBox"></div>
           <div class="sidebar-text-info ml-10"><span
-            class="text-description joblevel-icon mb-10">Job level</span><strong class="small-heading">Experienced (Non
-            - Manager)</strong></div>
+            class="text-description joblevel-icon mb-10">Job level</span><strong class="small-heading">
+            {{job?.jobLevel}}
+          </strong></div>
         </div>
       </div>
       <div class="row mt-25">
         <div class="col-md-6 d-flex mt-sm-15">
           <div class="sidebar-icon-item"><img src="https://jobbox-nextjs-v3.vercel.app/assets/imgs/page/job-single/salary.svg" alt="jobBox"></div>
           <div class="sidebar-text-info ml-10"><span class="text-description salary-icon mb-10">Salary</span><strong
-            class="small-heading">$800 - $1000</strong></div>
+            class="small-heading">{{job?.salary}}</strong></div>
         </div>
         <div class="col-md-6 d-flex">
           <div class="sidebar-icon-item"><img src="https://jobbox-nextjs-v3.vercel.app/assets/imgs/page/job-single/experience.svg" alt="jobBox"></div>
           <div class="sidebar-text-info ml-10"><span
-            class="text-description experience-icon mb-10">Experience</span><strong class="small-heading">1 - 2
-            years</strong></div>
+            class="text-description experience-icon mb-10">Experience</span><strong class="small-heading">
+            {{job?.experience}}
+          </strong></div>
         </div>
       </div>
       <div class="row mt-25">
         <div class="col-md-6 d-flex mt-sm-15">
           <div class="sidebar-icon-item"><img src="https://jobbox-nextjs-v3.vercel.app/assets/imgs/page/job-single/job-type.svg" alt="jobBox"></div>
           <div class="sidebar-text-info ml-10"><span class="text-description jobtype-icon mb-10">Job type</span><strong
-            class="small-heading">Permanent</strong></div>
+            class="small-heading">{{job?.jobType}}</strong></div>
         </div>
         <div class="col-md-6 d-flex mt-sm-15">
           <div class="sidebar-icon-item"><img src="https://jobbox-nextjs-v3.vercel.app/assets/imgs/page/job-single/deadline.svg" alt="jobBox"></div>
@@ -128,50 +139,26 @@
         <div class="col-md-6 d-flex mt-sm-15">
           <div class="sidebar-icon-item"><img src="https://jobbox-nextjs-v3.vercel.app/assets/imgs/page/job-single/updated.svg" alt="jobBox"></div>
           <div class="sidebar-text-info ml-10"><span class="text-description jobtype-icon mb-10">Updated</span><strong
-            class="small-heading">10/07/2022</strong></div>
+            class="small-heading">{{job?.updatedAt | date : 'dd/MM/yyyy'}}</strong></div>
         </div>
         <div class="col-md-6 d-flex mt-sm-15">
           <div class="sidebar-icon-item"><img src="https://jobbox-nextjs-v3.vercel.app/assets/imgs/page/job-single/location.svg" alt="jobBox"></div>
           <div class="sidebar-text-info ml-10"><span class="text-description mb-10">Location</span><strong
-            class="small-heading">Dallas, Texas Remote Friendly</strong></div>
+            class="small-heading">{{job?.location?.data.attributes.name}}</strong></div>
         </div>
       </div>
     </div>
 
-    <div class="content-single"><h4>Welcome to AliStudio Team</h4>
-      <p>The AliStudio Design team has a vision to establish a trusted platform that enables productive and healthy
-        enterprises in a world of digital and remote everything, constantly changing work patterns and norms, and the
-        need for organizational resiliency.</p>
-      <p>The ideal candidate will have strong creative skills and a portfolio of work which demonstrates their passion
-        for illustrative design and typography. This candidate will have experiences in working with numerous different
-        design platforms such as digital and print forms.</p><h4>Essential Knowledge, Skills, and Experience</h4>
-      <ul>
-        <li>A portfolio demonstrating well thought through and polished end to end customer journeys</li>
-        <li>5+ years of industry experience in interactive design and / or visual design</li>
-        <li>Excellent interpersonal skills</li>
-        <li>Aware of trends inmobile, communications, and collaboration</li>
-        <li>Ability to create highly polished design prototypes, mockups, and other communication artifacts</li>
-        <li>The ability to scope and estimate efforts accurately and prioritize tasks and goals independently</li>
-        <li>History of impacting shipping products with your work</li>
-        <li>A Bachelor's Degree in Design (or related field) or equivalent professional experience</li>
-        <li>Proficiency in a variety of design tools such as Figma, Photoshop, Illustrator, and Sketch</li>
-      </ul>
+    <div class="content-single"><h4>Introduction :</h4>
+      <p>{{job?.introduction}}</p><h4>Essential Knowledge, Skills, and Experience</h4>
+     <p>
+       {{job?.skills}}
+     </p>
       <h4>Preferred Experience</h4>
-      <ul>
-        <li>Designing user experiences for enterprise software / services</li>
-        <li>Creating and applying established design principles and interaction patterns</li>
-        <li>Aligning or influencing design thinking with teams working in other geographies</li>
-      </ul>
-      <h4>Product Designer</h4>
-      <p><strong>Product knowledge:</strong> Deeply understand the technology and features of the product area to which
-        you are assigned.</p>
-      <p><strong>Research:</strong> Provide human and business impact and insights for products.</p>
-      <p><strong>Deliverables:</strong> Create deliverables for your product area (for example competitive analyses,
-        user flows, low fidelity wireframes, high fidelity mockups, prototypes, etc.) that solve real user problems
-        through the user experience.</p>
-      <p><strong>Communication:</strong> Communicate the results of UX activities within your product area to the design
-        team department, cross-functional partners within your product area, and other interested Superformula team
-        members using clear language that simplifies complexity.</p></div>
+      <p>
+        {{job?.preferredExperience}}
+      </p>
+      </div>
 
   </div>
 </div>

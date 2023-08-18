@@ -3,6 +3,9 @@ import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {JobService} from "../../core/services/job/job.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {ApplieService} from "../../core/services/applie/applie.service";
+import {Applie} from "../../core/models/Applie";
+import {MessagesModalService} from "../../core/services/alerts/swal-alert.service";
 
 @Component({
   selector: 'app-job-detail',
@@ -15,9 +18,12 @@ export class JobDetailComponent implements OnInit{
 
   public job : any;
 
+
   constructor(private modalService: NgbModal,
               private jobService:JobService,
-              private route:ActivatedRoute) {
+              private route:ActivatedRoute,
+              private applieService:ApplieService,
+              private messagesModalService:MessagesModalService) {
 
     this.id = this.route.snapshot.paramMap.get('id');
 
@@ -34,7 +40,7 @@ export class JobDetailComponent implements OnInit{
 
   });
 
-  selectedFile: any = null;
+  selectedFile: File = null;
 
   onFileSelected(event: any): void {
     this.selectedFile = event.target.files[0] ?? null;
@@ -82,6 +88,22 @@ export class JobDetailComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.jobService.getById(this.id).subscribe((e :any) => this.job = e.data.attributes);
+    this.jobService.getById(this.id).subscribe((e :any) =>  {this.job = e.data.attributes ; console.log(this.job)});
+  }
+
+  applyAndClose() {
+    this.modalService.dismissAll();
+    let applie= new Applie();
+    this.applieService.importFile(this.selectedFile).subscribe(e => {
+      applie.nom = this.form.controls.nom.value;
+      applie.prenom = this.form.controls.prenom.value;
+      applie.email = this.form.controls.email.value;
+      applie.mobile = this.form.controls.mobile.value;
+      applie.phone = this.form.controls.phone.value;
+      applie.links = this.form.controls.links.value;
+      applie.cv = e[0].id;
+      applie.job = this.id;
+      this.applieService.save(applie).subscribe(s => this.messagesModalService.toastSuccess("Demande envoyé avec succés"));
+    });
   }
 }
